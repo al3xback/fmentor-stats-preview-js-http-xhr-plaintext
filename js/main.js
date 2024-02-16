@@ -1,14 +1,14 @@
 import { sendHttpRequest } from './util.js';
 
+const URL =
+	'https://gist.githubusercontent.com/al3xback/621d054866015f30cb932cc457e25043/raw/6209d62d3c944100cb5992d4c944b9c098d951bb/stats-preview-data.txt';
+
 const cardWrapperEl = document.querySelector('.card-wrapper');
+const cardTemplate = document.getElementById('card-template');
 const cardStatusItemTemplate = document.getElementById(
 	'card-stat-item-template'
 );
-const cardTemplate = document.getElementById('card-template');
 const loadingEl = document.querySelector('.loading');
-
-const URL =
-	'https://gist.githubusercontent.com/al3xback/621d054866015f30cb932cc457e25043/raw/6209d62d3c944100cb5992d4c944b9c098d951bb/stats-preview-data.txt';
 
 const removeLoading = () => {
 	loadingEl.parentElement.removeChild(loadingEl);
