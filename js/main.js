@@ -1,7 +1,7 @@
 import { sendHttpRequest } from './util.js';
 
 const URL =
-	'https://gist.githubusercontent.com/al3xback/621d054866015f30cb932cc457e25043/raw/6209d62d3c944100cb5992d4c944b9c098d951bb/stats-preview-data.txt';
+	'https://gist.githubusercontent.com/al3xback/621d054866015f30cb932cc457e25043/raw/61ef690a83a3022fd6b420b79b9944ed5c236343/stats-preview-data.txt';
 
 const cardWrapperEl = document.querySelector('.card-wrapper');
 const cardTemplate = document.getElementById('card-template');
@@ -25,15 +25,16 @@ const handleError = (msg) => {
 };
 
 const renderCardContent = (data) => {
-	const [title, description, image, ...statuses] = data.split('\n');
+	const [title, description, imageInfo, ...statuses] = data.split('\n');
+	const [imageSrc, imageAlt] = imageInfo.split(' | ');
 	const filteredStatuses = statuses.filter((link) => Boolean(link));
 
 	const cardTemplateNode = document.importNode(cardTemplate.content, true);
 	const cardEl = cardTemplateNode.querySelector('.card');
 
 	const cardImageEl = cardEl.querySelector('.card__image img');
-	cardImageEl.src = './images/' + image;
-	cardImageEl.alt = name;
+	cardImageEl.src = './images/' + imageSrc;
+	cardImageEl.alt = imageAlt;
 
 	const cardTitleEl = cardEl.querySelector('.card__title');
 	cardTitleEl.textContent = title;
