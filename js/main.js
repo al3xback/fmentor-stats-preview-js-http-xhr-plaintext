@@ -32,15 +32,15 @@ const renderCardContent = (data) => {
 	const cardTemplateNode = document.importNode(cardTemplate.content, true);
 	const cardEl = cardTemplateNode.querySelector('.card');
 
-	const cardImageEl = cardEl.querySelector('.card__image img');
-	cardImageEl.src = './images/' + imageSrc;
-	cardImageEl.alt = imageAlt;
-
 	const cardTitleEl = cardEl.querySelector('.card__title');
 	cardTitleEl.textContent = title;
 
 	const cardDescEl = cardEl.querySelector('.card__desc');
 	cardDescEl.textContent = description;
+
+	const cardImageEl = cardEl.querySelector('.card__image img');
+	cardImageEl.src = './images/' + imageSrc;
+	cardImageEl.alt = imageAlt;
 
 	const cardStatusListEl = cardEl.querySelector('.card__stats-list');
 
